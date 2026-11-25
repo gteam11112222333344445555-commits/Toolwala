@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InvoiceMint – Free PDF Invoice Generator for Freelancers and Small Businesses</title>
+<meta name="description" content="Create a professional invoice online and download it as an A4 PDF. Add line items, tax and discount, pick your currency. Free, no sign-up, works on mobile.">
+<meta name="keywords" content="invoice generator, free invoice maker, pdf invoice, freelancer invoice, receipt generator, small business invoice">
+<meta name="author" content="K Group">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#1e3a8a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="K Group">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="InvoiceMint – Free PDF Invoice Generator for Freelancers and Small Businesses">
+<meta property="og:description" content="Create a professional invoice online and download it as an A4 PDF. Add line items, tax and discount, pick your currency. Free, no sign-up, works on mobile.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="InvoiceMint – Free PDF Invoice Generator for Freelancers and Small Businesses">
+<meta name="twitter:description" content="Create a professional invoice online and download it as an A4 PDF. Add line items, tax and discount, pick your currency. Free, no sign-up, works on mobile.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%231e3a8a'%2F%3E%3Ctext%20x%3D'32'%20y%3D'44'%20font-size%3D'34'%20font-family%3D'Arial%2CHelvetica%2Csans-serif'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'white'%3EI%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script>try{var __t=sessionStorage.getItem('kg_theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"InvoiceMint","description":"Create a professional invoice online and download it as an A4 PDF. Add line items, tax and discount, pick your currency. Free, no sign-up, works on mobile.","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"K Group","email":"kashifazam364@gmail.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my invoice data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The invoice is built and converted to PDF inside your browser; nothing is sent to a server."}},{"@type":"Question","name":"Does the PDF download work on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. On mobile the invoice is rendered in a hidden off-screen layer so the PDF is always complete, even if the Preview tab is not open."}},{"@type":"Question","name":"Can I change the currency?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose $, Rs, €, £, ₹ or AED from the currency list."}},{"@type":"Question","name":"How are tax and discount calculated?","acceptedAnswer":{"@type":"Answer","text":"The discount is taken off the subtotal first, and tax is then applied to the discounted amount."}}]}</script>
+<style>
+:root{--pr:#1e3a8a}
+:root{--bg:#f5f7fb;--card:#ffffff;--tx:#0f172a;--mu:#53627c;--bd:#e1e7f0;--inp:#ffffff;--soft:#eef2f9;--on:#ffffff;--ok:#15803d;--er:#dc2626;--sh:0 6px 24px rgba(15,23,42,.07);--r:14px;--lk:var(--pr)}
+[data-theme=dark]{--bg:#0a0f1d;--card:#131a2d;--tx:#e8edf8;--mu:#97a5c1;--bd:#25304d;--inp:#0d1424;--soft:#192139;--ok:#4ade80;--er:#f87171;--sh:0 6px 24px rgba(0,0,0,.45);--lk:color-mix(in srgb,var(--pr) 55%,#ffffff)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;transition:background .2s,color .2s}
+a{color:var(--lk)}
+h1,h2,h3{line-height:1.25}
+img,svg{max-width:100%}
+.hide{display:none!important}
+.muted{color:var(--mu)}
+.center{text-align:center;justify-content:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--bd)}
+.top-in{max-width:1180px;margin:auto;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--tx);font-weight:800;font-size:1.15rem}
+.nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.navlink{text-decoration:none;color:var(--tx);font-weight:600;padding:7px 12px;border-radius:9px}
+.navlink:hover{background:var(--soft)}
+.hello{font-size:.88rem;color:var(--mu);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* controls */
+.btn{appearance:none;border:0;background:var(--pr);color:#fff;font:inherit;font-weight:700;padding:11px 18px;border-radius:10px;cursor:pointer;min-height:44px;transition:filter .15s,transform .05s}
+.btn:hover{filter:brightness(1.1)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.alt{background:var(--soft);color:var(--tx);border:1px solid var(--bd)}
+.btn.sm{padding:6px 13px;min-height:38px;font-size:.9rem}
+.btn.danger{background:var(--er);color:#fff}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--inp);border:1.5px solid var(--bd);border-radius:10px;padding:11px 12px;width:100%}
+textarea{resize:vertical}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--pr)}
+input[type=range]{padding:0;accent-color:var(--pr)}
+input[type=file]{padding:8px}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--pr) 55%,transparent);outline-offset:2px}
+label.f{display:block;font-size:.82rem;font-weight:700;color:var(--mu);margin:12px 0 5px}
+.err{color:var(--er);font-size:.9rem;min-height:1.3em}
+.ok{color:var(--ok)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}.g2 input,.g2 select{min-width:0;max-width:100%}
+.chk{display:flex;align-items:center;gap:8px;cursor:pointer}
+
+/* layout */
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 36px}
+.hero{display:flex;gap:14px;align-items:center;margin:6px 0 18px}
+.hero-ic svg{display:block;width:56px;height:56px;border-radius:14px;flex:none}
+.hero h1{margin:0;font-size:clamp(1.35rem,4.6vw,2.05rem)}
+.lead{margin:4px 0 0;color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:18px;box-shadow:var(--sh);margin-bottom:16px}
+.card h2{margin:0 0 12px;font-size:1.1rem}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:12px;margin-bottom:16px;overflow-x:auto}
+.tab{flex:1 0 auto;appearance:none;border:0;background:transparent;color:var(--mu);font:inherit;font-weight:700;padding:10px 14px;border-radius:9px;cursor:pointer;white-space:nowrap;min-height:42px}
+.tab[aria-selected=true]{background:var(--card);color:var(--lk);box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{appearance:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;font-weight:600;font-size:.9rem;padding:7px 15px;border-radius:999px;cursor:pointer}
+.pill[aria-pressed=true]{background:var(--pr);border-color:var(--pr);color:#fff}
+.item{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 4px;border-bottom:1px solid var(--bd)}
+.item:last-child{border-bottom:0}
+.item>span{flex:1;min-width:0;word-break:break-word}
+.stat{background:var(--soft);border-radius:12px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:var(--lk)}
+.stat span{font-size:.75rem;color:var(--mu);text-transform:uppercase;letter-spacing:.05em}
+.ad-slot{margin:14px 0;min-height:0}
+.faq details{border-bottom:1px solid var(--bd);padding:10px 0}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:8px 0 0;color:var(--mu)}
+
+/* footer */
+.foot{border-top:1px solid var(--bd);background:var(--card)}
+.foot-in{max-width:1180px;margin:auto;padding:22px 16px;text-align:center;font-size:.92rem}
+.foot-brand{font-weight:800;margin-bottom:8px}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin-bottom:10px}
+.foot-links a,.foot-links button{appearance:none;background:none;border:0;font:inherit;color:var(--lk);cursor:pointer;text-decoration:underline;padding:6px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(2,6,23,.62);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto}
+.modal-box{position:relative;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:16px;max-width:660px;width:100%;margin:auto;padding:24px 22px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.modal-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:10px;border:1px solid var(--bd);background:var(--soft);color:var(--tx);font-size:1rem;cursor:pointer}
+.modal h2{margin:0 0 12px;padding-right:44px;font-size:1.3rem}
+.modal h3{font-size:1rem;margin:18px 0 6px}
+.modal p,.modal li{font-size:.95rem}
+.modal ul{padding-left:20px}
+.stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.stats3>div{background:var(--soft);border-radius:12px;padding:12px 8px;text-align:center;font-size:.8rem;color:var(--mu)}
+.stats3 b{display:block;font-size:1.25rem;color:var(--lk)}
+.rv{margin:0 0 12px;padding:14px;border:1px solid var(--bd);border-radius:12px;background:var(--soft)}
+.rv .stars{color:#f59e0b;letter-spacing:2px}
+.rv p{margin:6px 0}
+.rv figcaption{font-weight:700;font-size:.9rem}
+.clist{list-style:none;padding:0!important}
+.clist li{margin:6px 0}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,90px);background:#0f172a;color:#fff;padding:11px 20px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:200;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0);opacity:1}
+
+@media(max-width:520px){
+ .top-in{padding:8px 12px}
+ .hello{display:none}
+ .btn{padding:10px 14px}
+ .stats3{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.layout{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.mhide{display:none}}
+.mtabs{display:none}
+@media(max-width:980px){.mtabs{display:flex}}
+.it{display:grid;grid-template-columns:minmax(0,1fr) 56px 76px 36px;gap:6px;margin-bottom:8px;align-items:center}
+.it input{padding:9px 6px;min-width:0;width:100%}
+.it .x{height:40px;border:0;border-radius:8px;background:color-mix(in srgb,var(--er) 18%,var(--card));color:var(--er);font-weight:800;cursor:pointer}
+.prevbox{overflow:auto;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:10px}
+/* The invoice itself always stays light, even in dark mode */
+.inv{width:794px;min-height:1000px;background:#fff;color:#0f172a;padding:48px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.45}
+.inv .top2{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:4px solid #0b2447;padding-bottom:18px}
+.inv h3{margin:0 0 6px;font-size:30px;letter-spacing:2px;color:#0b2447}
+.inv .biz{font-size:20px;font-weight:800;color:#0b2447}
+.inv .meta{text-align:right}
+.inv .pre{white-space:pre-line;color:#475569}
+.inv .bill{margin:22px 0}
+.inv .lbl{display:block;color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;font-weight:700}
+.inv table{width:100%;border-collapse:collapse;margin-top:6px}
+.inv th{background:#0b2447;color:#fff;text-align:left;padding:9px;font-size:12px}
+.inv td{padding:9px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+.inv .r{text-align:right}
+.inv tr{page-break-inside:avoid}
+.inv .tot{margin:18px 0 0 auto;width:290px}
+.inv .tot div{display:flex;justify-content:space-between;padding:5px 0}
+.inv .tot .gt{border-top:2px solid #0b2447;margin-top:6px;padding-top:9px;font-size:17px;font-weight:800;color:#0b2447}
+.inv .note{margin-top:30px;color:#475569;white-space:pre-wrap;page-break-inside:avoid}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html" aria-label="K Group – home"><svg width="34" height="34" viewBox="0 0 48 48" role="img" aria-label="K Group logo"><defs><linearGradient id="kgS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#kgS)"/><path d="M16 12v24M33 12L19 24l14 12" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>K Group</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="navlink" href="index.html">Home</a>
+    <span id="hello" class="hello hide"></span>
+    <button id="signBtn" class="btn sm alt" type="button">Quick Sign-In</button>
+    <button id="themeBtn" class="btn sm alt" type="button" aria-label="Switch to dark mode">🌙</button>
+  </nav>
+</div></header>
+
+<main class="wrap" id="main">
+<section class="hero"><div class="hero-ic"><svg viewBox="0 0 64 64" role="img" aria-label="I icon"><rect width="64" height="64" rx="14" fill="#1e3a8a"/><text x="32" y="44" font-size="34" font-family="Arial,Helvetica,sans-serif" font-weight="700" text-anchor="middle" fill="#fff">I</text></svg></div><div><h1>InvoiceMint</h1><p class="lead">Fill in the form, watch the invoice update live, then download a crisp A4 PDF.</p></div></section>
+<div class="ad-slot"></div>
+<div class="tabs mtabs" id="mtabs" role="tablist"><button class="tab" role="tab" id="te" aria-selected="true" type="button">Edit</button><button class="tab" role="tab" id="tp" aria-selected="false" type="button">Preview</button></div>
+<div class="layout">
+  <div class="card" id="formP">
+    <h2>Invoice details</h2>
+    <label class="f" for="biz">Your business name</label><input id="biz" maxlength="80" value="Your Business Name">
+    <label class="f" for="bad">Your address / contact</label><textarea id="bad" rows="2" maxlength="300">Karachi, Pakistan
+you@example.com</textarea>
+    <label class="f" for="cli">Client name</label><input id="cli" maxlength="80" value="Client Name">
+    <label class="f" for="cad">Client address / contact</label><textarea id="cad" rows="2" maxlength="300"></textarea>
+    <div class="g2">
+      <div><label class="f" for="no">Invoice #</label><input id="no" maxlength="30" value="INV-001"></div>
+      <div><label class="f" for="cur">Currency</label><select id="cur"><option value="$">$ Dollar</option><option value="Rs ">Rs Rupee</option><option value="€">€ Euro</option><option value="£">£ Pound</option><option value="₹">₹ Indian Rupee</option><option value="AED ">AED Dirham</option></select></div>
+      <div><label class="f" for="dt">Invoice date</label><input id="dt" type="date"></div>
+      <div><label class="f" for="due">Due date</label><input id="due" type="date"></div>
+    </div>
+    <h2 style="margin-top:20px">Items</h2>
+    <div id="items"></div>
+    <button class="btn alt" id="add" type="button" style="width:100%">+ Add Item</button>
+    <div class="g2">
+      <div><label class="f" for="tax">Tax %</label><input id="tax" type="number" min="0" max="100" step="any" value="0" inputmode="decimal"></div>
+      <div><label class="f" for="disc">Discount</label><input id="disc" type="number" min="0" step="any" value="0" inputmode="decimal"></div>
+    </div>
+    <label class="f" for="dtype">Discount type</label>
+    <select id="dtype"><option value="p">Percent (%)</option><option value="f">Fixed amount</option></select>
+    <label class="f" for="notes">Notes / payment details</label>
+    <textarea id="notes" rows="3" maxlength="600">Thank you for your business! Payment is due within 14 days.</textarea>
+    <div class="err" id="perr" role="alert"></div>
+    <button class="btn" id="dl" type="button" style="width:100%;margin-top:8px">⬇ Download PDF Invoice</button>
+  </div>
+  <div id="prevP" class="mhide">
+    <div class="prevbox" id="pbox"><div id="pouter"><div id="pscaler"><div class="inv" id="inv"></div></div></div></div>
+  </div>
+</div>
+<div class="ad-slot"></div>
+<section class="card faq"><h2>Frequently asked questions</h2><details><summary>Is my invoice data uploaded?</summary><p>No. The invoice is built and converted to PDF inside your browser; nothing is sent to a server.</p></details><details><summary>Does the PDF download work on my phone?</summary><p>Yes. On mobile the invoice is rendered in a hidden off-screen layer so the PDF is always complete, even if the Preview tab is not open.</p></details><details><summary>Can I change the currency?</summary><p>Yes. Choose $, Rs, €, £, ₹ or AED from the currency list.</p></details><details><summary>How are tax and discount calculated?</summary><p>The discount is taken off the subtotal first, and tax is then applied to the discounted amount.</p></details></section>
+</main>
+<footer class="foot"><div class="foot-in">
+  <div class="foot-brand">K Group · Karachi, Pakistan</div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="index.html">Home</a>
+    <button type="button" data-modal="about">About Us</button>
+    <button type="button" data-modal="reviews">User Reviews</button>
+    <button type="button" data-modal="contact">Contact Us</button>
+    <button type="button" data-modal="privacy">Privacy &amp; Terms</button>
+  </nav>
+  <div class="muted">© <span id="yr">2026</span> K Group. All rights reserved. · <a href="mailto:kashifazam364@gmail.com">kashifazam364@gmail.com</a></div>
+</div></footer>
+
+<div id="modal" class="modal hide" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box"><button id="mClose" class="modal-x" type="button" aria-label="Close dialog">✕</button><h2 id="mTitle"></h2><div id="mBody"></div></div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<template id="t-about" data-title="About K Group">
+  <p><strong>K Group</strong> is a small independent web studio based in <strong>Karachi, Pakistan</strong>. Our mission is to build fast, privacy-first web utilities that anyone can use for free – no sign-up, no installation and no uploading of your files to a server.</p>
+  <div class="stats3">
+    <div><b>10+</b>Free Tools</div>
+    <div><b>100%</b>Client-Side Privacy</div>
+    <div><b>Zero</b>Server Tracking</div>
+  </div>
+  <h3>What we believe</h3>
+  <ul>
+    <li>Your text, images and documents should stay on your own device.</li>
+    <li>Tools should load fast, work on a phone and be free to use.</li>
+    <li>Plain, honest policies – we explain exactly what is and is not collected.</li>
+  </ul>
+  <p>Questions or ideas for a new tool? Use <strong>Contact Us</strong> or write to <a href="mailto:kashifazam364@gmail.com">kashifazam364@gmail.com</a>.</p>
+</template>
+
+<template id="t-reviews" data-title="User Reviews">
+  <p class="muted">Reviews on this site are written by real users and published by K Group. We never invent testimonials.</p>
+  <div id="rvList"></div>
+</template>
+
+<template id="t-contact" data-title="Contact Us">
+  <ul class="clist">
+    <li>📧 <a href="mailto:kashifazam364@gmail.com">kashifazam364@gmail.com</a></li>
+    <li>📍 Karachi, Pakistan</li>
+  </ul>
+  <form id="cForm" novalidate>
+    <label class="f" for="cN">Your name</label>
+    <input id="cN" name="n" maxlength="60" autocomplete="name" required>
+    <label class="f" for="cE">Your email</label>
+    <input id="cE" name="e" type="email" maxlength="100" autocomplete="email" required>
+    <label class="f" for="cT">Topic</label>
+    <select id="cT" name="t"><option>General feedback</option><option>Bug report</option><option>Write a review</option><option>Business / advertising</option></select>
+    <label class="f" for="cM">Message</label>
+    <textarea id="cM" name="m" rows="5" maxlength="1500" required></textarea>
+    <div class="err" id="cErr" role="alert"></div>
+    <button class="btn" type="submit">Send message</button>
+  </form>
+  <p id="cOk" class="ok hide">Thank you! Your email app should now open with your message ready to send. If it did not open, please write to <a href="mailto:kashifazam364@gmail.com">kashifazam364@gmail.com</a>.</p>
+</template>
+
+<template id="t-sign" data-title="Quick Sign-In">
+  <p class="muted">Enter a display name for this browser session. It is kept only in this tab (sessionStorage) and is erased when you close the tab or press <em>Reset Session</em>. No account, no password, no server.</p>
+  <form id="sForm" novalidate>
+    <label class="f" for="sName">Display name</label>
+    <input id="sName" name="name" maxlength="30" autocomplete="nickname" required>
+    <div class="err" id="sErr" role="alert"></div>
+    <button class="btn" type="submit">Continue</button>
+  </form>
+</template>
+
+<template id="t-privacy" data-title="Privacy Policy &amp; Terms">
+  <p class="muted">Last updated: November 2026 · Applies worldwide, including users in the EU/EEA, UK and California.</p>
+  <h3>1. Who we are</h3>
+  <p>These websites are operated by <strong>K Group</strong>, Karachi, Pakistan. Contact: <a href="mailto:kashifazam364@gmail.com">kashifazam364@gmail.com</a>.</p>
+  <h3>2. Browser-only processing</h3>
+  <p>Our tools run inside your browser. Text you type, images you open, invoices, CVs and generated passwords are processed on your device and are <strong>not uploaded to or stored on our servers</strong>. We do not have user accounts, passwords or a database of personal information.</p>
+  <h3>3. What is stored on your device</h3>
+  <p>We use <em>sessionStorage</em> only for your chosen theme (light/dark) and the optional display name from Quick Sign-In. This stays in the current tab and is deleted when the tab closes or when you press Reset Session.</p>
+  <h3>4. Contact form</h3>
+  <p>The contact form simply opens your own email app with a pre-filled message addressed to us. We receive only what you choose to send, and use it solely to reply to you.</p>
+  <h3>5. Third-party services (keyless public APIs and CDNs)</h3>
+  <p>To work, some tools request data from, or load code from, public services such as jsDelivr, cdnjs, the open currency-rate APIs, randomuser.me, picsum.photos and the model files used by the background remover. These providers can see your IP address and basic request details, under their own privacy policies. We do not send them your personal content.</p>
+  <h3>6. Cookies and advertising</h3>
+  <p>When advertising is enabled, third-party vendors including Google use cookies to serve ads based on your prior visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet. You can opt out of personalised advertising at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> or <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">aboutads.info</a>. Where required (EEA, UK, Switzerland), ads and cookies are shown only after consent.</p>
+  <h3>7. Your rights (GDPR / CCPA)</h3>
+  <p>Depending on where you live you may have the right to access, correct, delete or restrict the use of your personal data, to object to processing and to opt out of the sale or sharing of personal information. We do not sell personal information. Because we hold almost no personal data, most requests can be answered quickly – email us and we will respond.</p>
+  <h3>8. Children</h3>
+  <p>Our tools are general-purpose and not directed to children under 13. We do not knowingly collect personal information from children.</p>
+  <h3>9. Security</h3>
+  <p>Processing in your browser minimises risk. We escape user input before it is displayed and open external links with <code>rel="noopener noreferrer"</code>. No method of transmission over the internet is 100% secure.</p>
+  <h3>10. Terms of use</h3>
+  <ul>
+    <li>The tools are provided <strong>“as is”</strong>, without warranties of any kind. Use them at your own risk.</li>
+    <li>Outputs are for general information only. Currency rates, calculations, invoices, CVs and generated text are not financial, legal or professional advice – please verify important results.</li>
+    <li>Do not use the tools for unlawful, abusive or harmful purposes, or to infringe the rights of others.</li>
+    <li>Links to third-party websites are provided for convenience; K Group is not responsible for their content or pricing, which may change.</li>
+    <li>To the maximum extent permitted by law, K Group is not liable for any loss arising from use of the tools.</li>
+  </ul>
+  <h3>11. Changes</h3>
+  <p>We may update this page from time to time. Continued use of the site means you accept the updated version.</p>
+</template>
+
+<script defer src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+<script>
+/* K Group shared runtime – plain browser JavaScript, no dependencies */
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ssGet(k){try{return sessionStorage.getItem(k)}catch(e){return null}}
+function ssSet(k,v){try{if(v===null)sessionStorage.removeItem(k);else sessionStorage.setItem(k,v)}catch(e){}}
+
+var _toastT;
+function toast(m){var t=$('toast');if(!t)return;t.textContent=m;t.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(function(){t.classList.remove('show')},1900)}
+
+function copyText(t){
+  t=String(t);
+  function legacy(){
+    return new Promise(function(res){
+      var a=document.createElement('textarea');
+      a.value=t;a.setAttribute('readonly','');
+      a.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px';
+      document.body.appendChild(a);
+      var ok=false;
+      try{a.focus({preventScroll:true});a.select();a.setSelectionRange(0,a.value.length);ok=document.execCommand('copy')}catch(e){}
+      a.remove();res(ok);
+    });
+  }
+  if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(t).then(function(){return true},legacy)}
+  return legacy();
+}
+function doCopy(t){return copyText(t).then(function(ok){toast(ok?'Copied!':'Could not copy – please select the text and copy it manually.');return ok})}
+
+function dlBlob(blob,name){
+  var u=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=u;a.download=name;a.rel='noopener';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(u)},5000);
+}
+function tfetch(url,ms,opt){
+  var c=new AbortController(),id=setTimeout(function(){c.abort()},ms);
+  opt=Object.assign({},opt||{},{signal:c.signal});
+  return fetch(url,opt).finally(function(){clearTimeout(id)});
+}
+function loadScript(src){
+  return new Promise(function(res,rej){
+    var s=document.createElement('script');s.src=src;s.async=true;
+    s.onload=function(){res()};s.onerror=function(){rej(new Error('Could not load '+src))};
+    document.head.appendChild(s);
+  });
+}
+function initTabs(root,cb){
+  var tabs=root.querySelectorAll('[data-tab]');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){
+        var on=x===t;x.setAttribute('aria-selected',on?'true':'false');
+        var p=$(x.getAttribute('data-tab'));if(p)p.classList.toggle('hide',!on);
+      });
+      if(cb)cb(t.getAttribute('data-tab'));
+    });
+  });
+}
+/* scale a fixed-width document (e.g. 794px A4) to fit a narrow screen */
+function fitPreview(box,outer,scaler,w){
+  var avail=box.clientWidth-20;if(avail<=0)return;
+  var s=Math.min(1,avail/w);
+  scaler.style.width=w+'px';scaler.style.transformOrigin='top left';scaler.style.transform='scale('+s+')';
+  outer.style.width=(w*s)+'px';outer.style.height=(scaler.offsetHeight*s)+'px';outer.style.margin='0 auto';
+}
+/* PDF export that also works while the preview is hidden (mobile tabs):
+   the document is cloned into an off-screen, visible container first. */
+async function exportPdf(srcEl,filename,avoid){
+  if(typeof html2pdf==='undefined'){
+    try{await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js')}catch(e){}
+  }
+  if(typeof html2pdf==='undefined')throw new Error('The PDF library could not be loaded. Please check your internet connection and try again.');
+  var wrap=document.createElement('div');
+  wrap.setAttribute('aria-hidden','true');
+  wrap.style.cssText='position:fixed;left:-10000px;top:0;width:794px;background:#fff;pointer-events:none';
+  var clone=srcEl.cloneNode(true);
+  clone.removeAttribute('id');
+  clone.style.cssText='width:794px;margin:0;display:block;transform:none;box-shadow:none';
+  wrap.appendChild(clone);document.body.appendChild(wrap);
+  try{
+    await new Promise(function(r){setTimeout(r,150)});
+    await html2pdf().set({
+      margin:[8,0,8,0],filename:filename,
+      image:{type:'jpeg',quality:0.98},
+      html2canvas:{scale:2,useCORS:true,scrollX:0,scrollY:0,windowWidth:794,backgroundColor:'#ffffff'},
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+      pagebreak:{mode:['css','legacy'],avoid:avoid||[]}
+    }).from(clone).save();
+  }finally{wrap.remove()}
+}
+
+/* ---------- reviews (real reviews only, loaded from reviews.json) ---------- */
+function renderReviews(el){
+  if(!el)return;
+  el.textContent='Loading…';
+  function empty(){
+    el.textContent='';
+    var p=document.createElement('p');p.className='muted';
+    p.textContent='No public reviews have been published yet. Tried one of our tools? We would love to hear what you think.';
+    var b=document.createElement('button');b.type='button';b.className='btn sm';b.textContent='Write a review';
+    b.addEventListener('click',function(){openModal('contact',{topic:'Write a review'})});
+    el.appendChild(p);el.appendChild(b);
+  }
+  tfetch('reviews.json',3000,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('none');return r.json()}).then(function(a){
+    if(!Array.isArray(a))throw new Error('bad');
+    a=a.filter(function(x){return x&&typeof x.name==='string'&&typeof x.text==='string'&&x.name.trim()&&x.text.trim()}).slice(0,12);
+    if(!a.length)throw new Error('empty');
+    el.textContent='';
+    a.forEach(function(x){
+      var f=document.createElement('figure');f.className='rv';
+      var n=Math.max(1,Math.min(5,parseInt(x.stars,10)||5));
+      var s=document.createElement('div');s.className='stars';s.setAttribute('aria-label',n+' out of 5 stars');
+      s.textContent='★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);
+      var p=document.createElement('p');p.textContent=x.text.trim().slice(0,400);
+      var c=document.createElement('figcaption');c.textContent='— '+x.name.trim().slice(0,60);
+      f.appendChild(s);f.appendChild(p);f.appendChild(c);el.appendChild(f);
+    });
+  }).catch(empty);
+}
+
+/* ---------- modals ---------- */
+var _lastFocus=null;
+function openModal(name,opt){
+  var tpl=$('t-'+name);if(!tpl)return;
+  var b=$('mBody');b.textContent='';b.appendChild(tpl.content.cloneNode(true));
+  $('mTitle').textContent=tpl.getAttribute('data-title')||'';
+  $('modal').classList.remove('hide');document.body.style.overflow='hidden';
+  _lastFocus=document.activeElement;
+  if(name==='contact')initContact(opt||{});
+  if(name==='reviews')renderReviews($('rvList'));
+  if(name==='sign')initSign();
+  $('mClose').focus();
+}
+function closeModal(){
+  $('modal').classList.add('hide');document.body.style.overflow='';
+  if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
+}
+function initContact(opt){
+  var f=$('cForm');if(!f)return;
+  if(opt.topic){var s=f.elements.t;for(var i=0;i<s.options.length;i++){if(s.options[i].text===opt.topic)s.selectedIndex=i}}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=f.elements.n.value.trim(),em=f.elements.e.value.trim(),m=f.elements.m.value.trim(),t=f.elements.t.value,err=$('cErr');
+    if(n.length<2){err.textContent='Please enter your name.';return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){err.textContent='Please enter a valid email address.';return}
+    if(m.length<10){err.textContent='Please write a message of at least 10 characters.';return}
+    err.textContent='';
+    var subj='[K Group] '+t+' – '+document.title.split(' – ')[0];
+    var body=m+'\n\n— '+n+' ('+em+')';
+    f.classList.add('hide');$('cOk').classList.remove('hide');
+    location.href='mailto:kashifazam364@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  });
+}
+
+/* ---------- lightweight session (display name only, sessionStorage) ---------- */
+function refreshSession(){
+  var n=ssGet('kg_name'),h=$('hello'),b=$('signBtn');
+  if(h){h.textContent=n?('Hi, '+n):'';h.classList.toggle('hide',!n)}
+  if(b)b.textContent=n?'Reset Session':'Quick Sign-In';
+}
+function initSign(){
+  var f=$('sForm');if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=f.elements.name.value.replace(/[\u0000-\u001f\u007f<>]/g,'').trim().slice(0,30);
+    if(!v){$('sErr').textContent='Please type a display name.';return}
+    ssSet('kg_name',v);refreshSession();closeModal();toast('Signed in as '+v);
+  });
+}
+function resetSession(){
+  try{for(var i=sessionStorage.length-1;i>=0;i--){var k=sessionStorage.key(i);if(k&&k.indexOf('kg_')===0&&k!=='kg_theme')sessionStorage.removeItem(k)}}catch(e){}
+  refreshSession();toast('Session reset');
+}
+
+(function(){
+  var y=$('yr');if(y)y.textContent=new Date().getFullYear();
+
+  var tb=$('themeBtn');
+  function paintTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(tb){tb.textContent=d?'☀️':'🌙';tb.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode')}}
+  if(tb)tb.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);ssSet('kg_theme',next);paintTheme();
+  });
+  paintTheme();
+
+  var sb=$('signBtn');
+  if(sb)sb.addEventListener('click',function(){ssGet('kg_name')?resetSession():openModal('sign')});
+  refreshSession();
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('[data-modal]'):null;
+    if(b){e.preventDefault();openModal(b.getAttribute('data-modal'))}
+  });
+  var m=$('modal');
+  if(m){
+    $('mClose').addEventListener('click',closeModal);
+    m.addEventListener('mousedown',function(e){if(e.target===m)closeModal()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.classList.contains('hide'))closeModal()});
+  }
+})();
+
+</script>
+<script>
+function pad(n){return n<10?'0'+n:''+n}
+function isoLocal(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+var now=new Date();$('dt').value=isoLocal(now);
+var dueD=new Date(now);dueD.setDate(dueD.getDate()+14);$('due').value=isoLocal(dueD);
+var items=[{d:'Web design service',q:1,p:500},{d:'Hosting (1 year)',q:1,p:60}];
+
+function fd(s){if(!s)return'';var p=s.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}
+function num(v){var n=parseFloat(v);return isFinite(n)&&n>=0?n:0}
+
+function drawForm(){
+  var c=$('items');c.textContent='';
+  items.forEach(function(it,i){
+    var r=document.createElement('div');r.className='it';
+    var d=document.createElement('input');d.placeholder='Description';d.maxLength=120;d.value=it.d;d.setAttribute('aria-label','Item description');
+    var q=document.createElement('input');q.type='number';q.min='0';q.step='any';q.value=it.q;q.title='Quantity';q.setAttribute('aria-label','Quantity');q.inputMode='decimal';
+    var p=document.createElement('input');p.type='number';p.min='0';p.step='any';p.value=it.p;p.title='Unit price';p.setAttribute('aria-label','Unit price');p.inputMode='decimal';
+    var x=document.createElement('button');x.type='button';x.className='x';x.textContent='✕';x.title='Delete item';x.setAttribute('aria-label','Delete item');
+    d.addEventListener('input',function(){it.d=d.value;draw()});
+    q.addEventListener('input',function(){it.q=num(q.value);draw()});
+    p.addEventListener('input',function(){it.p=num(p.value);draw()});
+    x.addEventListener('click',function(){items.splice(i,1);drawForm();draw()});
+    r.appendChild(d);r.appendChild(q);r.appendChild(p);r.appendChild(x);c.appendChild(r);
+  });
+}
+function draw(){
+  var cs=$('cur').value;
+  function m(n){return cs+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+  var sub=items.reduce(function(s,i){return s+i.q*i.p},0);
+  var dv=num($('disc').value);
+  var dAmt=$('dtype').value==='p'?sub*Math.min(dv,100)/100:Math.min(dv,sub);
+  var tv=Math.min(num($('tax').value),100);
+  var tAmt=(sub-dAmt)*tv/100,gt=sub-dAmt+tAmt;
+  var rows=items.map(function(i,n){
+    return '<tr><td>'+(n+1)+'</td><td>'+esc(i.d||'-')+'</td><td class="r">'+i.q+'</td><td class="r">'+m(i.p)+'</td><td class="r">'+m(i.q*i.p)+'</td></tr>';
+  }).join('');
+  $('inv').innerHTML=
+    '<div class="top2"><div><div class="biz">'+esc($('biz').value)+'</div><div class="pre">'+esc($('bad').value)+'</div></div>'+
+    '<div class="meta"><h3>INVOICE</h3><div><b>No:</b> '+esc($('no').value)+'</div><div><b>Date:</b> '+esc(fd($('dt').value))+'</div><div><b>Due:</b> '+esc(fd($('due').value))+'</div></div></div>'+
+    '<div class="bill"><span class="lbl">Bill to</span><div style="font-weight:700;font-size:15px">'+esc($('cli').value)+'</div><div class="pre">'+esc($('cad').value)+'</div></div>'+
+    '<table><thead><tr><th style="width:36px">#</th><th>Description</th><th class="r" style="width:60px">Qty</th><th class="r" style="width:110px">Unit price</th><th class="r" style="width:120px">Amount</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+    '<div class="tot"><div><span>Subtotal</span><span>'+m(sub)+'</span></div>'+
+    (dAmt?'<div><span>Discount</span><span>-'+m(dAmt)+'</span></div>':'')+
+    (tv?'<div><span>Tax ('+tv+'%)</span><span>'+m(tAmt)+'</span></div>':'')+
+    '<div class="gt"><span>Total</span><span>'+m(gt)+'</span></div></div>'+
+    '<div class="note">'+esc($('notes').value)+'</div>';
+  fit();
+}
+function fit(){fitPreview($('pbox'),$('pouter'),$('pscaler'),794)}
+['biz','bad','cli','cad','no','cur','dt','due','tax','disc','dtype','notes'].forEach(function(i){$(i).addEventListener('input',draw);$(i).addEventListener('change',draw)});
+$('add').addEventListener('click',function(){
+  items.push({d:'',q:1,p:0});drawForm();draw();
+  var l=$('items').lastChild;if(l&&l.firstChild)l.firstChild.focus();
+});
+window.addEventListener('resize',fit);
+
+/* mobile Edit / Preview tabs (both panels always visible on desktop) */
+function showTab(edit){
+  $('te').setAttribute('aria-selected',edit);$('tp').setAttribute('aria-selected',!edit);
+  $('formP').classList.toggle('mhide',!edit);$('prevP').classList.toggle('mhide',edit);
+  if(!edit)setTimeout(fit,0);
+}
+$('te').addEventListener('click',function(){showTab(true)});
+$('tp').addEventListener('click',function(){showTab(false)});
+$('prevP').classList.add('mhide');
+
+$('dl').addEventListener('click',async function(){
+  var btn=$('dl');$('perr').textContent='';
+  var fn=(($('no').value||'invoice').replace(/[^\p{L}\p{N}_-]+/gu,'_'))+'.pdf';
+  btn.disabled=true;btn.textContent='Creating PDF…';
+  try{await exportPdf($('inv'),fn,['tr','.note','.tot'])}
+  catch(e){$('perr').textContent=e.message||'Could not create the PDF.'}
+  btn.disabled=false;btn.textContent='⬇ Download PDF Invoice';
+});
+drawForm();draw();
+
+</script>
+</body>
+</html>
